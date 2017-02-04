@@ -1,0 +1,23 @@
+* Useful Links
+** EDGAR search page: [[http://www.sec.gov/edgar/searchedgar/companysearch.html]]
+** SEC
+*** n-q definition [[http://www.investopedia.com/terms/s/sec-form-n-q.asp]]
+*** n-csr definition [[http://www.investopedia.com/terms/s/sec-form-n-csr.asp]]
+*** n-mfp definition [[https://www.merrillcorp.com/en/glossary/form-nmfp]]
+*** Wiki of SEC filings [[https://en.wikipedia.org/wiki/SEC_filing]]
+*** Corporate vs mutual fund filings [[https://irblog.prnewswire.com/2016/03/16/mutual-fund-sec-filings-v-corporate-issuer-sec-filings/]]
+*** SEC clearer explanation of n-q vs n-csr [[https://www.sec.gov/rules/final/33-8393.htm#EXECUTIVE]]
+*** Mutual Funds vs ETF tickers [[http://www.obliviousinvestor.com/index-funds-and-etfs-get-the-ticker-right/]]
+** Possible Alternatives
+*** Morningstar api (indirect?) [[https://gist.github.com/hahnicity/45323026693cdde6a116]]
+*** Scraping morningstar [[http://stackoverflow.com/questions/35668091/webscraping-financial-data-from-morningstar]]
+* Test Sources
+** 25 larget mutual funds [[http://www.marketwatch.com/tools/mutual-fund/top25largest]]
+** Alphabetical fund listing [[http://www.marketwatch.com/tools/mutual-fund/list?firstLetter=A]]
+** List of 13F-HR companies: [[https://whalewisdom.com/]]
+** TODO Find ETF examples
+** TODO Find small funds to test
+* N-Q sources
+** TODO Try training tesseract on sample images
+*** Pro: would have reliable, historical data for large funds
+*** Con: non-portable, requires user to train the same model, still have to validate data afterwards
