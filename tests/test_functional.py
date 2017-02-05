@@ -31,7 +31,7 @@ class Test13FHR(unittest.TestCase):
         # With all the holdings statements, the parser converts the xml
         # into a more useable form
         current_13fhr = parser.get_13f_holdings(cik, accepted_date,
-                                                            holdings_xml)
+                                                holdings_xml)
 
         # With the holdings extracted, the parser prints them into a neatly
         # formatted tab-separated report for Mary

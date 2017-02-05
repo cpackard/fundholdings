@@ -1,24 +1,34 @@
-import pprint
+import sys
 
-import holdings
+from holdings import web
+from holdings import parser
 
-xml_with_ns = '/home/chpack/Documents/python/quovo_challenge/christian_packard/fund_holdings/resources/13f_hr_with_namespace.xml'
-xml_no_ns = '/home/chpack/Documents/python/quovo_challenge/christian_packard/fund_holdings/resources/13f_hr_no_namespace.xml'
+def generate_13fhr_report(cik, forms):
+    archives = web.get_archive_links(cik, *forms)
 
-ns_tree = ET.parse(xml_with_ns)
-tree = ET.parse(xml_no_ns)
+    # The parser looks for the most recent holdings
+    holdings_statement = web.get_holding_info(archives[0])
 
-ns_root = ns_tree.getroot()
-root = tree.getroot()
+    accepted_date, holdings_xml = parser.get_13f_xml(holdings_statement[0])
+
+    current_13fhr = parser.get_13f_holdings(cik, accepted_date,
+                                            holdings_xml)
+
+    report_name = current_13fhr.generate_report()
+
+
+def main():
+    """Main entry point for the application"""
+    if len(sys.argv) < 2:
+        print('Usage: python -m holdings.main ticker_or_cik')
+        sys.exit(1)
+
+    cik = sys.argv[1]
+    forms = ['13F-HR', '13F-HR/A', 'N-Q']
+
+    generate_13fhr_report(cik, forms)
 
 
 if __name__ == '__main__':
-    # pp = pprint.PrettyPrinter(indent=4)
-    # tables = get_infotables(root)
-    # print(len(tables))
-    # pp.pprint(tables)
-    # cik = 'viiix'
-    cik = '0001166559'
-    forms = ['13F-HR', '13F-HR/A']
-    results = get_archive_links(cik, *forms)
-    print(results)
+    # cik = '0001166559'
+    main()
