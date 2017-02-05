@@ -21,3 +21,22 @@
 ** TODO Try training tesseract on sample images
 *** Pro: would have reliable, historical data for large funds
 *** Con: non-portable, requires user to train the same model, still have to validate data afterwards
+** TODO Try Google vision API
+*** Pro: highly reliable (99% accuracy on first try), fairly quick to parse
+*** Con: needs an account (possibly paying)
+
+* Design
+** Class Structure
+*** Base class: Holding
+**** entity
+**** shares
+**** value
+*** Subclass: 13FHolding
+**** contains all extra fields that Holding has, plus extras from 13F-HR filing 
+**** nameOfIssuer --> entity
+**** shares --> shrsOrPrnAmt,sshPrnamt (if sshPrnamtType == 'SH')
+**** value --> value
+**** cusip
+**** investmentDiscretion
+**** titleOfClass
+**** votingAuthority

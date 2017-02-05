@@ -1,0 +1,355 @@
+<SEC-DOCUMENT>0001418812-16-000209.txt : 20161115
+<SEC-HEADER>0001418812-16-000209.hdr.sgml : 20161115
+<ACCEPTANCE-DATETIME>20161115111926
+ACCESSION NUMBER:		0001418812-16-000209
+CONFORMED SUBMISSION TYPE:	13F-HR
+PUBLIC DOCUMENT COUNT:		2
+CONFORMED PERIOD OF REPORT:	20160930
+FILED AS OF DATE:		20161115
+DATE AS OF CHANGE:		20161115
+EFFECTIVENESS DATE:		20161115
+
+FILER:
+
+	COMPANY DATA:	
+		COMPANY CONFORMED NAME:			ValueAct Holdings, L.P.
+		CENTRAL INDEX KEY:			0001418814
+		IRS NUMBER:				251905427
+		STATE OF INCORPORATION:			DE
+		FISCAL YEAR END:			1231
+
+	FILING VALUES:
+		FORM TYPE:		13F-HR
+		SEC ACT:		1934 Act
+		SEC FILE NUMBER:	028-13172
+		FILM NUMBER:		161998422
+
+	BUSINESS ADDRESS:	
+		STREET 1:		ONE LETTERMAN DRIVE
+		STREET 2:		BUILDING D, 4TH FLOOR
+		CITY:			SAN FRANCISCO
+		STATE:			CA
+		ZIP:			94129
+		BUSINESS PHONE:		415-362-3700
+
+	MAIL ADDRESS:	
+		STREET 1:		ONE LETTERMAN DRIVE
+		STREET 2:		BUILDING D, 4TH FLOOR
+		CITY:			SAN FRANCISCO
+		STATE:			CA
+		ZIP:			94129
+</SEC-HEADER>
+<DOCUMENT>
+<TYPE>13F-HR
+<SEQUENCE>1
+<FILENAME>primary_doc.xml
+<TEXT>
+<XML>
+<?xml version="1.0" encoding="UTF-8"?>
+<edgarSubmission xmlns="http://www.sec.gov/edgar/thirteenffiler" xmlns:com="http://www.sec.gov/edgar/common">
+  <headerData>
+    <submissionType>13F-HR</submissionType>
+    <filerInfo>
+      <liveTestFlag>LIVE</liveTestFlag>
+      <flags>
+        <confirmingCopyFlag>false</confirmingCopyFlag>
+        <returnCopyFlag>false</returnCopyFlag>
+        <overrideInternetFlag>false</overrideInternetFlag>
+      </flags>
+      <filer>
+        <credentials>
+          <cik>0001418814</cik>
+          <ccc>XXXXXXXX</ccc>
+        </credentials>
+      </filer>
+      <periodOfReport>09-30-2016</periodOfReport>
+    </filerInfo>
+  </headerData>
+  <formData>
+    <coverPage>
+      <reportCalendarOrQuarter>09-30-2016</reportCalendarOrQuarter>
+      <filingManager>
+        <name>ValueAct Holdings, L.P.</name>
+        <address>
+          <com:street1>ONE LETTERMAN DRIVE</com:street1>
+          <com:street2>BUILDING D, 4TH FLOOR</com:street2>
+          <com:city>SAN FRANCISCO</com:city>
+          <com:stateOrCountry>CA</com:stateOrCountry>
+          <com:zipCode>94129</com:zipCode>
+        </address>
+      </filingManager>
+      <reportType>13F COMBINATION REPORT</reportType>
+      <form13FFileNumber>028-13172</form13FFileNumber>
+      <otherManagersInfo>
+        <otherManager>
+          <cik>0001351069</cik>
+          <form13FFileNumber>028-12033</form13FFileNumber>
+          <name>ValueAct Capital Management, L.P.</name>
+        </otherManager>
+      </otherManagersInfo>
+      <provideInfoForInstruction5>N</provideInfoForInstruction5>
+    </coverPage>
+    <signatureBlock>
+      <name>Bradley E. Singer</name>
+      <title>Chief Operating Officer</title>
+      <phone>415-362-3700</phone>
+      <signature>/s/ Bradley E. Singer</signature>
+      <city>San Francisco</city>
+      <stateOrCountry>CA</stateOrCountry>
+      <signatureDate>11-15-2016</signatureDate>
+    </signatureBlock>
+    <summaryPage>
+      <otherIncludedManagersCount>1</otherIncludedManagersCount>
+      <tableEntryTotal>13</tableEntryTotal>
+      <tableValueTotal>11491045</tableValueTotal>
+      <isConfidentialOmitted>false</isConfidentialOmitted>
+      <otherManagers2Info>
+        <otherManager2>
+          <sequenceNumber>1</sequenceNumber>
+          <otherManager>
+            <cik>0001351069</cik>
+            <form13FFileNumber>028-12033</form13FFileNumber>
+            <name>ValueAct Capital Management, L.P.</name>
+          </otherManager>
+        </otherManager2>
+      </otherManagers2Info>
+    </summaryPage>
+  </formData>
+</edgarSubmission>
+</XML>
+</TEXT>
+</DOCUMENT>
+<DOCUMENT>
+<TYPE>INFORMATION TABLE
+<SEQUENCE>2
+<FILENAME>vac13f111516.xml
+<TEXT>
+<XML>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<n1:informationTable xmlns:n1="http://www.sec.gov/edgar/document/thirteenf/informationtable">
+	<n1:infoTable>
+		<n1:nameOfIssuer>ALLIANCE DATA SYSTEMS CORP</n1:nameOfIssuer>
+		<n1:titleOfClass>COM</n1:titleOfClass>
+		<n1:cusip>018581108</n1:cusip>
+		<n1:value>1072650</n1:value>
+		<n1:shrsOrPrnAmt>
+			<n1:sshPrnamt>5000000</n1:sshPrnamt>
+			<n1:sshPrnamtType>SH</n1:sshPrnamtType>
+		</n1:shrsOrPrnAmt>
+		<n1:investmentDiscretion>SOLE</n1:investmentDiscretion>
+		<n1:otherManager>1</n1:otherManager>
+		<n1:votingAuthority>
+			<n1:Sole>5000000</n1:Sole>
+			<n1:Shared>0</n1:Shared>
+			<n1:None>0</n1:None>
+		</n1:votingAuthority>
+	</n1:infoTable>
+	<n1:infoTable>
+		<n1:nameOfIssuer>ALLISON TRANSMISSION HLDGS I</n1:nameOfIssuer>
+		<n1:titleOfClass>COM</n1:titleOfClass>
+		<n1:cusip>01973R101</n1:cusip>
+		<n1:value>548511</n1:value>
+		<n1:shrsOrPrnAmt>
+			<n1:sshPrnamt>19125204</n1:sshPrnamt>
+			<n1:sshPrnamtType>SH</n1:sshPrnamtType>
+		</n1:shrsOrPrnAmt>
+		<n1:investmentDiscretion>SOLE</n1:investmentDiscretion>
+		<n1:otherManager>1</n1:otherManager>
+		<n1:votingAuthority>
+			<n1:Sole>19125204</n1:Sole>
+			<n1:Shared>0</n1:Shared>
+			<n1:None>0</n1:None>
+		</n1:votingAuthority>
+	</n1:infoTable>
+	<n1:infoTable>
+		<n1:nameOfIssuer>ARMSTRONG FLOORING INC</n1:nameOfIssuer>
+		<n1:titleOfClass>COM</n1:titleOfClass>
+		<n1:cusip>04238R106</n1:cusip>
+		<n1:value>86848</n1:value>
+		<n1:shrsOrPrnAmt>
+			<n1:sshPrnamt>4600000</n1:sshPrnamt>
+			<n1:sshPrnamtType>SH</n1:sshPrnamtType>
+		</n1:shrsOrPrnAmt>
+		<n1:investmentDiscretion>SOLE</n1:investmentDiscretion>
+		<n1:otherManager>1</n1:otherManager>
+		<n1:votingAuthority>
+			<n1:Sole>4600000</n1:Sole>
+			<n1:Shared>0</n1:Shared>
+			<n1:None>0</n1:None>
+		</n1:votingAuthority>
+	</n1:infoTable>
+	<n1:infoTable>
+		<n1:nameOfIssuer>ARMSTRONG WORLD INDS INC NEW</n1:nameOfIssuer>
+		<n1:titleOfClass>COM</n1:titleOfClass>
+		<n1:cusip>04247X102</n1:cusip>
+		<n1:value>380144</n1:value>
+		<n1:shrsOrPrnAmt>
+			<n1:sshPrnamt>9200000</n1:sshPrnamt>
+			<n1:sshPrnamtType>SH</n1:sshPrnamtType>
+		</n1:shrsOrPrnAmt>
+		<n1:investmentDiscretion>SOLE</n1:investmentDiscretion>
+		<n1:otherManager>1</n1:otherManager>
+		<n1:votingAuthority>
+			<n1:Sole>9200000</n1:Sole>
+			<n1:Shared>0</n1:Shared>
+			<n1:None>0</n1:None>
+		</n1:votingAuthority>
+	</n1:infoTable>
+	<n1:infoTable>
+		<n1:nameOfIssuer>BAKER HUGHES INC</n1:nameOfIssuer>
+		<n1:titleOfClass>COM</n1:titleOfClass>
+		<n1:cusip>057224107</n1:cusip>
+		<n1:value>1508357</n1:value>
+		<n1:shrsOrPrnAmt>
+			<n1:sshPrnamt>29886200</n1:sshPrnamt>
+			<n1:sshPrnamtType>SH</n1:sshPrnamtType>
+		</n1:shrsOrPrnAmt>
+		<n1:investmentDiscretion>SOLE</n1:investmentDiscretion>
+		<n1:otherManager>1</n1:otherManager>
+		<n1:votingAuthority>
+			<n1:Sole>29886200</n1:Sole>
+			<n1:Shared>0</n1:Shared>
+			<n1:None>0</n1:None>
+		</n1:votingAuthority>
+	</n1:infoTable>
+	<n1:infoTable>
+		<n1:nameOfIssuer>CBRE GROUP INC</n1:nameOfIssuer>
+		<n1:titleOfClass>CL A</n1:titleOfClass>
+		<n1:cusip>12504L109</n1:cusip>
+		<n1:value>968669</n1:value>
+		<n1:shrsOrPrnAmt>
+			<n1:sshPrnamt>34620054</n1:sshPrnamt>
+			<n1:sshPrnamtType>SH</n1:sshPrnamtType>
+		</n1:shrsOrPrnAmt>
+		<n1:investmentDiscretion>SOLE</n1:investmentDiscretion>
+		<n1:otherManager>1</n1:otherManager>
+		<n1:votingAuthority>
+			<n1:Sole>34620054</n1:Sole>
+			<n1:Shared>0</n1:Shared>
+			<n1:None>0</n1:None>
+		</n1:votingAuthority>
+	</n1:infoTable>
+	<n1:infoTable>
+		<n1:nameOfIssuer>MICROSOFT CORP</n1:nameOfIssuer>
+		<n1:titleOfClass>COM</n1:titleOfClass>
+		<n1:cusip>594918104</n1:cusip>
+		<n1:value>2224781</n1:value>
+		<n1:shrsOrPrnAmt>
+			<n1:sshPrnamt>38624678</n1:sshPrnamt>
+			<n1:sshPrnamtType>SH</n1:sshPrnamtType>
+		</n1:shrsOrPrnAmt>
+		<n1:investmentDiscretion>SOLE</n1:investmentDiscretion>
+		<n1:otherManager>1</n1:otherManager>
+		<n1:votingAuthority>
+			<n1:Sole>38624678</n1:Sole>
+			<n1:Shared>0</n1:Shared>
+			<n1:None>0</n1:None>
+		</n1:votingAuthority>
+	</n1:infoTable>
+	<n1:infoTable>
+		<n1:nameOfIssuer>MORGAN STANLEY</n1:nameOfIssuer>
+		<n1:titleOfClass>COM NEW</n1:titleOfClass>
+		<n1:cusip>617446448</n1:cusip>
+		<n1:value>1343314</n1:value>
+		<n1:shrsOrPrnAmt>
+			<n1:sshPrnamt>41900000</n1:sshPrnamt>
+			<n1:sshPrnamtType>SH</n1:sshPrnamtType>
+		</n1:shrsOrPrnAmt>
+		<n1:investmentDiscretion>SOLE</n1:investmentDiscretion>
+		<n1:otherManager>1</n1:otherManager>
+		<n1:votingAuthority>
+			<n1:Sole>41900000</n1:Sole>
+			<n1:Shared>0</n1:Shared>
+			<n1:None>0</n1:None>
+		</n1:votingAuthority>
+	</n1:infoTable>
+	<n1:infoTable>
+		<n1:nameOfIssuer>SEAGATE TECHNOLOGY PLC</n1:nameOfIssuer>
+		<n1:titleOfClass>SHS</n1:titleOfClass>
+		<n1:cusip>G7945M107</n1:cusip>
+		<n1:value>367747</n1:value>
+		<n1:shrsOrPrnAmt>
+			<n1:sshPrnamt>9539490</n1:sshPrnamt>
+			<n1:sshPrnamtType>SH</n1:sshPrnamtType>
+		</n1:shrsOrPrnAmt>
+		<n1:investmentDiscretion>SOLE</n1:investmentDiscretion>
+		<n1:otherManager>1</n1:otherManager>
+		<n1:votingAuthority>
+			<n1:Sole>9539490</n1:Sole>
+			<n1:Shared>0</n1:Shared>
+			<n1:None>0</n1:None>
+		</n1:votingAuthority>
+	</n1:infoTable>
+	<n1:infoTable>
+		<n1:nameOfIssuer>TRINITY INDS INC</n1:nameOfIssuer>
+		<n1:titleOfClass>COM</n1:titleOfClass>
+		<n1:cusip>896522109</n1:cusip>
+		<n1:value>300340</n1:value>
+		<n1:shrsOrPrnAmt>
+			<n1:sshPrnamt>12421000</n1:sshPrnamt>
+			<n1:sshPrnamtType>SH</n1:sshPrnamtType>
+		</n1:shrsOrPrnAmt>
+		<n1:investmentDiscretion>SOLE</n1:investmentDiscretion>
+		<n1:otherManager>1</n1:otherManager>
+		<n1:votingAuthority>
+			<n1:Sole>12421000</n1:Sole>
+			<n1:Shared>0</n1:Shared>
+			<n1:None>0</n1:None>
+		</n1:votingAuthority>
+	</n1:infoTable>
+	<n1:infoTable>
+		<n1:nameOfIssuer>TWENTY-FIRST CENTURY FOX INC</n1:nameOfIssuer>
+		<n1:titleOfClass>CL B</n1:titleOfClass>
+		<n1:cusip>90130A200</n1:cusip>
+		<n1:value>1245074</n1:value>
+		<n1:shrsOrPrnAmt>
+			<n1:sshPrnamt>50326334</n1:sshPrnamt>
+			<n1:sshPrnamtType>SH</n1:sshPrnamtType>
+		</n1:shrsOrPrnAmt>
+		<n1:investmentDiscretion>SOLE</n1:investmentDiscretion>
+		<n1:otherManager>1</n1:otherManager>
+		<n1:votingAuthority>
+			<n1:Sole>50326334</n1:Sole>
+			<n1:Shared>0</n1:Shared>
+			<n1:None>0</n1:None>
+		</n1:votingAuthority>
+	</n1:infoTable>
+	<n1:infoTable>
+		<n1:nameOfIssuer>VALEANT PHARMACEUTICALS INTE</n1:nameOfIssuer>
+		<n1:titleOfClass>COM</n1:titleOfClass>
+		<n1:cusip>91911K102</n1:cusip>
+		<n1:value>368109</n1:value>
+		<n1:shrsOrPrnAmt>
+			<n1:sshPrnamt>14994261</n1:sshPrnamt>
+			<n1:sshPrnamtType>SH</n1:sshPrnamtType>
+		</n1:shrsOrPrnAmt>
+		<n1:investmentDiscretion>SOLE</n1:investmentDiscretion>
+		<n1:otherManager>1</n1:otherManager>
+		<n1:votingAuthority>
+			<n1:Sole>14994261</n1:Sole>
+			<n1:Shared>0</n1:Shared>
+			<n1:None>0</n1:None>
+		</n1:votingAuthority>
+	</n1:infoTable>
+	<n1:infoTable>
+		<n1:nameOfIssuer>WILLIS TOWERS WATSON PUB LTD</n1:nameOfIssuer>
+		<n1:titleOfClass>SHS</n1:titleOfClass>
+		<n1:cusip>G96629103</n1:cusip>
+		<n1:value>1076501</n1:value>
+		<n1:shrsOrPrnAmt>
+			<n1:sshPrnamt>8108015</n1:sshPrnamt>
+			<n1:sshPrnamtType>SH</n1:sshPrnamtType>
+		</n1:shrsOrPrnAmt>
+		<n1:investmentDiscretion>SOLE</n1:investmentDiscretion>
+		<n1:otherManager>1</n1:otherManager>
+		<n1:votingAuthority>
+			<n1:Sole>8108015</n1:Sole>
+			<n1:Shared>0</n1:Shared>
+			<n1:None>0</n1:None>
+		</n1:votingAuthority>
+	</n1:infoTable>
+</n1:informationTable>
+</XML>
+</TEXT>
+</DOCUMENT>
+</SEC-DOCUMENT>
