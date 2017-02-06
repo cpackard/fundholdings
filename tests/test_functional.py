@@ -5,6 +5,7 @@ import requests
 
 from holdings import web
 from holdings import parser
+from holdings import main
 
 class Test13FHR(unittest.TestCase):
 
@@ -35,10 +36,28 @@ class Test13FHR(unittest.TestCase):
 
         # With the holdings extracted, the parser prints them into a neatly
         # formatted tab-separated report for Mary
-        report_name = current_13fhr.generate_report()
+        reportname = current_13fhr.generate_report()
 
         ## Mary inspects the report to make sure she has the correct info
-        with open('reports/' + report_name, 'r') as report:
+        with open('reports/' + reportname, 'r') as report:
+            reader = csv.DictReader(report, delimiter='\t')
+            for row in reader:
+                self.assertIsInstance(int(row['value'].replace(',', '')), int)
+                self.assertIsInstance(int(row['shares'].replace(',', '')), int)
+
+        ## Satisfied, she goes back to her other tasks
+
+    def test_valid_13fhr_filing_with_namespace_in_xml(self):
+        ## Mary comes back and wants to find the latest holdings on another
+        ## fund she's interested in.
+
+        ## She searches the CIK number and forms she's interested in
+        cik = '0001418814'
+        forms = ['13F-HR', '13F-HR/A']
+        reportname = main.generate_13fhr_report(cik, forms)
+
+        ## Mary inspects the report to make sure she has the correct info
+        with open('reports/' + reportname, 'r') as report:
             reader = csv.DictReader(report, delimiter='\t')
             for row in reader:
                 self.assertIsInstance(int(row['value'].replace(',', '')), int)

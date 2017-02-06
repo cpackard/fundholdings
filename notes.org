@@ -24,6 +24,13 @@
 ** TODO Try Google vision API
 *** Pro: highly reliable (99% accuracy on first try), fairly quick to parse
 *** Con: needs an account (possibly paying)
+** Notes on N-Q sources:
+*** Funds have 1 or more series associated with them 
+**** Can be found in the <SERIES-AND-CLASSES-CONTRACTS-DATA> tag in complete report txt
+*** N-Q class should be composed of multiple series, and series should have the holdings
+**** When generating the reports, format could be CIK_SERIESID_ACCEPTANCEDATE.txt
+*** Holdings are grouped in TR tags, which could make them easier to generically parse
+*** Will have to parse complete submission text for series data, then extract HTML from that for holdings
 
 * Design
 ** Class Structure
@@ -40,3 +47,14 @@
 **** investmentDiscretion
 **** titleOfClass
 **** votingAuthority
+
+* TODOs
+** TODO Make parser support N-Q text reports
+** TODO Support N-Q image reports
+** TODO Handle exception in main()
+** TODO Support range of dates for report 
+** TODO Run code coverage report
+** TODO Finish README
+** TODO Group generated reports together
+** TODO Stress test with multiple funds (large, small, etf, 13f)
+

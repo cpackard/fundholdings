@@ -16,6 +16,8 @@ def generate_13fhr_report(cik, forms):
 
     report_name = current_13fhr.generate_report()
 
+    return report_name
+
 
 def main():
     """Main entry point for the application"""
