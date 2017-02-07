@@ -57,4 +57,9 @@
 ** TODO Finish README
 ** TODO Group generated reports together
 ** TODO Stress test with multiple funds (large, small, etf, 13f)
-
+** TODO Refactor DTO into multiple files
+** TODO Add requirements.txt and setup.py
+** TODO Refactor parser methods inside report classes
+** TODO Refactor Holdings to SharesOrPrincipal
+** TODO Refactor test_holdings_parser to test_13fhr.py
+** TODO Add logging to application

@@ -7,7 +7,7 @@ from holdings import web
 from holdings import parser
 from holdings import main
 
-class Test13FHR(unittest.TestCase):
+class Test13FHRReport(unittest.TestCase):
 
     def test_valid_13fhr_filing(self):
         ## Mary wants to find out the latest holdings of a fund she's
@@ -64,6 +64,43 @@ class Test13FHR(unittest.TestCase):
                 self.assertIsInstance(int(row['shares'].replace(',', '')), int)
 
         ## Satisfied, she goes back to her other tasks
+
+
+class TestNQReport(unittest.TestCase):
+
+    def test_valid_nq_filing_with_text_report(self):
+        ## Jim wants to find out the latest holdings of a fund he's
+        ## invested in, the Vanguard Institutional Index Funds
+
+        ## He searches by the trust's ticker
+        cik = 'viiix'
+
+        # The parser performs the initial search on EDGAR database
+
+        forms = ['N-Q']
+        archives = web.get_archive_links(cik, *forms)
+
+        # The parser looks for the most recent holdings
+        holdings_statement = web.get_holding_info(archives[0])
+
+        # With the complete submission, the parser extracts the accepted_date,
+        # series / contract information, and parses the HTML to read the holdings
+        # into a more useable form
+        current_nq = parser.get_nq_report(holdings_statement[0])
+
+        # With the holdings extracted, the parser prints them into neatly
+        # formatted tab-separated reports for Mim
+        reportnames = current_nq.generate_report()
+
+        ## Jim inspects the reports to make sure he has the correct info
+        for reportname in reportnames:
+            with open('reports/' + reportname, 'r') as report:
+                reader = csv.DictReader(report, delimiter='\t')
+                for row in reader:
+                    self.assertIsInstance(int(row['value'].replace(',', '')), int)
+                    self.assertIsInstance(int(row['shares'].replace(',', '')), int)
+
+        ## Satisfied, he goes back to his other tasks
 
 
 if __name__ == '__main__':
