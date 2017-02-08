@@ -45,7 +45,7 @@ def generate_report(cik, forms):
     else:
         logger.error('Don\'t know how to parse form' + submission_type)
         print('Don\'t know how to parse form' + submission_type)
-        return ''
+        sys.exit(1)
 
 def main():
     """Main entry point for the application"""
@@ -64,11 +64,11 @@ def main():
     except web.HoldingInfoNotFoundException as e:
         logger.error('No submission text found in the following archives:')
         logger.error(str(e))
-    except parser.InvalidContractTextException as e:
+    except reportnq.InvalidContractTextException as e:
         logger.error('While parsing the contract classes for the fund, '
               + 'the following error occured:')
         logger.error(str(e))
-    except parser.InvalidSeriesTextException as e:
+    except reportnq.InvalidSeriesTextException as e:
         logger.error('While parsing the series information for the fund, '
               + 'the following error occured:')
         logger.error(str(e))
