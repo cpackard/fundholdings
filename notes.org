@@ -70,8 +70,8 @@
 ** TODO Refactor DTO into multiple files
 ** TODO Add requirements.txt and setup.py
 ** TODO Refactor parser methods inside report classes
-** TODO Refactor Holdings to SharesOrPrincipal
-** TODO Refactor test_holdings_parser to test_13fhr.py
+** DONE Refactor test_holdings_parser to test_13fhr.py
+   CLOSED: [2017-02-07 Tue 21:07]
 ** TODO Add logging to application
 ** DONE Detect 13fhr vs nq reports
    CLOSED: [2017-02-07 Tue 20:25]
