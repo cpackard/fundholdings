@@ -3,7 +3,9 @@ import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup
 from datetime import datetime
 
-from holdings import holdingsDTO
+from holdings.dto import base
+from holdings.dto import report13fhr
+from holdings.dto import reportnq
 
 def short_tag(tag):
     """Helper method to remove any namespaces from the XML tag"""
@@ -93,13 +95,13 @@ def get_13f_holdings(cik, accepted_date, submission_type, holdings_xml):
 
     infotables = get_infotables(tree)
 
-    holdings = [holdingsDTO.Holding(h['nameOfIssuer'],
+    holdings = [base.Holding(h['nameOfIssuer'],
                                 h['shrsOrPrnAmt']['sshPrnamt'],
                                 h['value'])
                 for h
                 in infotables]
 
-    return holdingsDTO.Report13FHR(cik, accepted_date, submission_type, holdings)
+    return report13fhr.Report13FHR(cik, accepted_date, submission_type, holdings)
 
 
 ####################### nq report #####################################
@@ -142,7 +144,7 @@ def parse_contract(text):
     ticker = _get_line_element_value('<CLASS-CONTRACT-TICKER-SYMBOL>', text[3].strip(),
                                      InvalidContractTextException)
 
-    return holdingsDTO.ClassContract(ID, name, ticker)
+    return reportnq.ClassContract(ID, name, ticker)
 
 
 def parse_series(text):
@@ -160,7 +162,7 @@ def parse_series(text):
     name     = _get_line_element_value('<SERIES-NAME>', text[2].strip(),
                                        InvalidSeriesTextException)
 
-    return holdingsDTO.FundSeries(ID, ownerCIK, name)
+    return reportnq.FundSeries(ID, ownerCIK, name)
 
 def parse_series_and_contracts(text):
     """
@@ -206,7 +208,7 @@ def parse_nq_report_html(html_text):
                 shares = tds[1].get_text()
                 value  = tds[2].get_text()
 
-                holdings.append(holdingsDTO.Holding(name, shares, value))
+                holdings.append(base.Holding(name, shares, value))
 
     return holdings
 
@@ -268,7 +270,7 @@ def get_nq_report(complete_text):
         # TODO expand this to differentiate between different series
         series.holdings = holdings
 
-    report = holdingsDTO.ReportNQ(all_series[0].ownerCIK,
+    report = reportnq.ReportNQ(all_series[0].ownerCIK,
                                   accepted_date,
                                   submission_type,
                                   all_series)
