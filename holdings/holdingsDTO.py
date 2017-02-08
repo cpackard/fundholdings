@@ -68,7 +68,7 @@ class Report13FHR(SECForm):
                                  'shares': holding.shares,
                                  'value':  holding.value})
 
-        return reportname
+        return [reportname]
 
 ######################## reportnq.py #############################
 

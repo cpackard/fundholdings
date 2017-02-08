@@ -39,10 +39,10 @@ class Test13FHRReport(unittest.TestCase):
 
         # With the holdings extracted, the parser prints them into a neatly
         # formatted tab-separated report for Mary
-        reportname = current_13fhr.generate_report()
+        reportnames = current_13fhr.generate_report()
 
         ## Mary inspects the report to make sure she has the correct info
-        with open('reports/' + reportname, 'r') as report:
+        with open('reports/' + reportnames[0], 'r') as report:
             reader = csv.DictReader(report, delimiter='\t')
             for row in reader:
                 self.assertIsInstance(int(row['value'].replace(',', '')), int)
@@ -57,10 +57,10 @@ class Test13FHRReport(unittest.TestCase):
         ## She searches the CIK number and forms she's interested in
         cik = '0001418814'
         forms = ['13F-HR', '13F-HR/A']
-        reportname = main.generate_report(cik, forms)
+        reportnames = main.generate_report(cik, forms)
 
         ## Mary inspects the report to make sure she has the correct info
-        with open('reports/' + reportname, 'r') as report:
+        with open('reports/' + reportnames[0], 'r') as report:
             reader = csv.DictReader(report, delimiter='\t')
             for row in reader:
                 self.assertIsInstance(int(row['value'].replace(',', '')), int)

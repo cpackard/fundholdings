@@ -4,7 +4,6 @@ from holdings import web
 from holdings import parser
 
 def generate_13fhr_report(cik, forms, archives):
-
     # The parser looks for the most recent holdings
     holdings_statement = web.get_holding_info(archives[0])
 
@@ -13,9 +12,9 @@ def generate_13fhr_report(cik, forms, archives):
     current_13fhr = parser.get_13f_holdings(cik, accepted_date,
                                             submission_type, holdings_xml)
 
-    report_name = current_13fhr.generate_report()
+    reportnames = current_13fhr.generate_report()
 
-    return report_name
+    return reportnames
 
 def generate_nq_report(cik, forms, archives):
     holdings_statement = web.get_holding_info(archives[0])
@@ -45,9 +44,13 @@ def main():
     cik = sys.argv[1]
     forms = ['13F-HR', '13F-HR/A', 'N-Q']
 
-    generate_report(cik, forms)
+    reportnames = generate_report(cik, forms)
+
+    print('Reports successfully generated and can be found in:')
+
+    for name in reportnames:
+        print('reports/' + name)
 
 
 if __name__ == '__main__':
-    # cik = '0001166559'
     main()

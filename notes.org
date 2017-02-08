@@ -63,7 +63,8 @@
 ** TODO Support range of dates for report 
 ** TODO Run code coverage report
 ** TODO Finish README
-** TODO Group generated reports together
+** DONE Group generated reports together
+   CLOSED: [2017-02-07 Tue 20:49]
 ** TODO Stress test with multiple funds (large, small, etf, 13f)
 ** TODO Refactor DTO into multiple files
 ** TODO Add requirements.txt and setup.py
@@ -74,4 +75,5 @@
 ** DONE Detect 13fhr vs nq reports
    CLOSED: [2017-02-07 Tue 20:25]
 ** TODO Format and align/prettify variables
-** TODO Print info to user telling them if parsing was successful
+** DONE Print info to user telling them if parsing was successful
+   CLOSED: [2017-02-07 Tue 20:49]
