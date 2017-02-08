@@ -1,9 +1,19 @@
 import sys
+import logging
 
 from holdings import web
 
 from holdings.dto import report13fhr
 from holdings.dto import reportnq
+
+logger = logging.getLogger()
+handler = logging.StreamHandler()
+formatter = logging.Formatter(
+    '%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
+
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+logger.setLevel(logging.WARN)
 
 def generate_13fhr_report(cik, forms, archives):
     # The parser looks for the most recent holdings
@@ -29,11 +39,13 @@ def generate_report(cik, forms):
     submission_type, archives = web.get_archive_links(cik, *forms)
 
     if submission_type == '13F-HR' or submission_type == '13F-HR/A':
+        logger.info('Found 13F-HR filing, proceeding to generate report...')
         return generate_13fhr_report(cik, forms, archives)
     elif submission_type == 'N-Q':
+        logger.info('Found N-Q filing, proceeding to generate report...')
         return generate_nq_report(cik, forms, archives)
     else:
-        # TODO add logging here
+        logger.error('Don\'t know how to parse form' + submission_type)
         print('Don\'t know how to parse form' + submission_type)
         return ''
 
@@ -47,21 +59,23 @@ def main():
     forms = ['13F-HR', '13F-HR/A', 'N-Q']
 
     try:
+        logger.info('Starting to search for report')
         reportnames = generate_report(cik, forms)
     except web.TickerNotFoundException:
-        print('No suck ticker ' + cik + ' found in EDGAR')
+        logger.error('No suck ticker ' + cik + ' found in EDGAR')
     except web.HoldingInfoNotFoundException as e:
-        print('No submission text found in the following archives:')
-        print(str(e))
+        logger.error('No submission text found in the following archives:')
+        logger.error(str(e))
     except parser.InvalidContractTextException as e:
-        print('While parsing the contract classes for the fund, '
+        logger.error('While parsing the contract classes for the fund, '
               + 'the following error occured:')
-        print(str(e))
+        logger.error(str(e))
     except parser.InvalidSeriesTextException as e:
-        print('While parsing the series information for the fund, '
+        logger.error('While parsing the series information for the fund, '
               + 'the following error occured:')
-        print(str(e))
+        logger.error(str(e))
     else:
+        logger.info('Finished searching for report')
         print('Reports successfully generated and can be found in:')
 
         for name in reportnames:

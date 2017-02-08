@@ -74,7 +74,8 @@
    CLOSED: [2017-02-07 Tue 21:56]
 ** DONE Refactor test_holdings_parser to test_13fhr.py
    CLOSED: [2017-02-07 Tue 21:07]
-** TODO Add logging to application
+** DONE Add logging to application
+   CLOSED: [2017-02-07 Tue 22:25]
 ** DONE Detect 13fhr vs nq reports
    CLOSED: [2017-02-07 Tue 20:25]
 ** TODO Format and align/prettify variables
