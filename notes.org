@@ -67,9 +67,11 @@
 ** DONE Group generated reports together
    CLOSED: [2017-02-07 Tue 20:49]
 ** TODO Stress test with multiple funds (large, small, etf, 13f)
-** TODO Refactor DTO into multiple files
+** DONE Refactor DTO into multiple files
+   CLOSED: [2017-02-07 Tue 21:19]
 ** TODO Add requirements.txt and setup.py
-** TODO Refactor parser methods inside report classes
+** DONE Refactor parser methods inside report classes
+   CLOSED: [2017-02-07 Tue 21:56]
 ** DONE Refactor test_holdings_parser to test_13fhr.py
    CLOSED: [2017-02-07 Tue 21:07]
 ** TODO Add logging to application

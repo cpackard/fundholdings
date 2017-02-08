@@ -1,15 +1,17 @@
 import sys
 
 from holdings import web
-from holdings import parser
+
+from holdings.dto import report13fhr
+from holdings.dto import reportnq
 
 def generate_13fhr_report(cik, forms, archives):
     # The parser looks for the most recent holdings
     holdings_statement = web.get_holding_info(archives[0])
 
-    accepted_date, submission_type, holdings_xml = parser.get_13f_xml(holdings_statement[0])
+    accepted_date, submission_type, holdings_xml = report13fhr.get_13f_xml(holdings_statement[0])
 
-    current_13fhr = parser.get_13f_holdings(cik, accepted_date,
+    current_13fhr = report13fhr.get_13f_holdings(cik, accepted_date,
                                             submission_type, holdings_xml)
 
     reportnames = current_13fhr.generate_report()
@@ -18,7 +20,7 @@ def generate_13fhr_report(cik, forms, archives):
 
 def generate_nq_report(cik, forms, archives):
     holdings_statement = web.get_holding_info(archives[0])
-    current_nq = parser.get_nq_report(holdings_statement[0])
+    current_nq = reportnq.get_nq_report(holdings_statement[0])
     reportnames = current_nq.generate_report()
 
     return reportnames

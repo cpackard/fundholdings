@@ -4,8 +4,10 @@ import csv
 import requests
 
 from holdings import web
-from holdings import parser
 from holdings import main
+
+from holdings.dto import report13fhr
+from holdings.dto import reportnq
 
 class Test13FHRReport(unittest.TestCase):
 
@@ -27,11 +29,11 @@ class Test13FHRReport(unittest.TestCase):
         holdings_statement = web.get_holding_info(archives[0])
 
         # With the complete submission, the parser cuts down unnecessary info
-        accepted_date, submission_type, holdings_xml = parser.get_13f_xml(holdings_statement[0])
+        accepted_date, submission_type, holdings_xml = report13fhr.get_13f_xml(holdings_statement[0])
 
         # With all the holdings statements, the parser converts the xml
         # into a more useable form
-        current_13fhr = parser.get_13f_holdings(cik, accepted_date,
+        current_13fhr = report13fhr.get_13f_holdings(cik, accepted_date,
                                                 submission_type, holdings_xml)
 
         self.assertEqual(current_13fhr.cik, '0001166559')
@@ -89,7 +91,7 @@ class TestNQReport(unittest.TestCase):
         # With the complete submission, the parser extracts the accepted_date,
         # series / contract information, and parses the HTML to read the holdings
         # into a more useable form
-        current_nq = parser.get_nq_report(holdings_statement[0])
+        current_nq = reportnq.get_nq_report(holdings_statement[0])
 
         self.assertEqual(current_nq.cik, '0000862084')
         self.assertEqual(current_nq.submission_type, 'N-Q')
