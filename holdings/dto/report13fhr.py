@@ -3,6 +3,9 @@ import xml
 import xml.etree.ElementTree as ET
 from datetime import datetime
 
+import logging
+logger = logging.getLogger(__name__)
+
 from holdings.dto import base
 
 ################################### Class Definitions #######################################
@@ -30,7 +33,6 @@ class Report13FHR(base.SECForm):
                       + self.accepted_date.isoformat().replace('-', '_')
                       + '.txt')
 
-        # TODO Find a way to make this path relative
         with open('reports/' + reportname, 'w') as csvfile:
             fields = ['entity', 'shares', 'value']
             writer = csv.DictWriter(csvfile, fieldnames=fields, delimiter='\t')
@@ -86,10 +88,10 @@ def get_13f_xml(holdings_statement):
     Given the complete submission text for a 13F-HR filing,
     parse and return only the XML containing the information table.
     """
-    holdings_xml = []
-    accepted_date = ''
+    holdings_xml    = []
+    accepted_date   = ''
     submission_type = ''
-    info_started = False
+    info_started    = False
 
     for line in holdings_statement.split('\n'):
         # Parse only the lines between the <informationTable> tags
@@ -113,8 +115,7 @@ def get_13f_xml(holdings_statement):
                 accepted_date  = datetime.strptime(formatted_date,
                                                 '%Y %m %d').date()
             except ValueError:
-                # TODO put actual logging here
-                print('get_13f_xml expected a well-formatted date')
+                logger.warn('get_13f_xml expected a well-formatted date')
                 raise
 
     return accepted_date, submission_type, ''.join(holdings_xml)
@@ -132,12 +133,11 @@ def get_13f_holdings(cik, accepted_date, submission_type, holdings_xml):
         raise
 
     infotables = get_infotables(tree)
-
-    holdings = [base.Holding(h['nameOfIssuer'],
-                                h['shrsOrPrnAmt']['sshPrnamt'],
-                                h['value'])
-                for h
-                in infotables]
+    holdings   = [base.Holding(h['nameOfIssuer'],
+                               h['shrsOrPrnAmt']['sshPrnamt'],
+                               h['value'])
+                  for h
+                  in infotables]
 
     return Report13FHR(cik, accepted_date, submission_type, holdings)
 

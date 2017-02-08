@@ -19,9 +19,6 @@ class Test13FHRReport(unittest.TestCase):
         cik = '0001166559'
 
         # The parser performs the initial search on EDGAR database
-
-        # url = ('https://www.sec.gov/cgi-bin/browse-edgar?CIK='
-        #        + cik + '&owner=exclude&action=getcompany')
         forms = ['13F-HR', '13F-HR/A']
         submission_type, archives = web.get_archive_links(cik, *forms)
 
@@ -81,7 +78,6 @@ class TestNQReport(unittest.TestCase):
         cik = 'viiix'
 
         # The parser performs the initial search on EDGAR database
-
         forms = ['N-Q']
         submission_type, archives = web.get_archive_links(cik, *forms)
 

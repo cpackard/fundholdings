@@ -5,25 +5,25 @@ class TestArchiveLinks(unittest.TestCase):
 
     def test_doesnt_return_links_for_bad_ticker(self):
         ticker = 'whatever'
-        forms = ['N-Q']
+        forms  = ['N-Q']
         self.assertRaises(web.TickerNotFoundException,
                           web.get_archive_links, ticker, *forms)
 
     def test_doesnt_return_links_for_bad_forms(self):
         ticker = 'viiix'
-        forms = ['Q-N']
+        forms  = ['Q-N']
         self.assertEqual(('', []),
                           web.get_archive_links(ticker, *forms))
 
     def test_returns_links_for_13fhr(self):
         ticker = '0001166559'
-        forms = ['13F-HR', '13F-HR/A']
+        forms  = ['13F-HR', '13F-HR/A']
         self.assertNotEqual([],
                             web.get_archive_links(ticker, *forms))
 
     def test_returns_links_for_nq(self):
         ticker = 'viiix'
-        forms = ['N-Q']
+        forms  = ['N-Q']
         self.assertNotEqual([],
                             web.get_archive_links(ticker, *forms))
 

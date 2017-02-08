@@ -25,7 +25,7 @@ class TestGetSeriesAndContracts(unittest.TestCase):
                           reportnq.parse_series, text)
 
     def test_converts_valid_series_text_to_series_object(self):
-        text = ['<OWNER-CIK>0000862084', '<SERIES-ID>S000002853', '<SERIES-NAME>Vanguard Institutional Index Fund']
+        text   = ['<OWNER-CIK>0000862084', '<SERIES-ID>S000002853', '<SERIES-NAME>Vanguard Institutional Index Fund']
         series = reportnq.parse_series(text)
 
         self.assertEqual(series.ID, 'S000002853')
@@ -46,7 +46,6 @@ class TestGetSeriesAndContracts(unittest.TestCase):
 class TestGetSeriesHoldings(unittest.TestCase):
 
     def test_parse_nq_report_html(self):
-        # TODO Make this a relative path
         with open('/home/chpack/Documents/python/quovo_challenge/christian_packard/fund_holdings/resources/vanguard_html.html', 'r') as vanguard_html:
             html_text = vanguard_html.read()
 
@@ -59,7 +58,6 @@ class TestGetSeriesHoldings(unittest.TestCase):
         self.assertEqual(holding.value, '3,655,319')
 
     def test_get_nq_report(self):
-        # TODO Make this a relative path
         with open('/home/chpack/Documents/python/quovo_challenge/christian_packard/fund_holdings/resources/vanguard_complete_text_submission.txt', 'r') as vanguard_text:
             complete_text = vanguard_text.read()
 

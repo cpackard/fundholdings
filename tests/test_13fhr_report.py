@@ -63,10 +63,9 @@ class TestGet13FHoldings(unittest.TestCase):
                           report13fhr.get_13f_holdings, cik, accepted_date, submission_type, malformed_xml)
 
     def test_parse_valid_xml_with_namespace(self):
-        # TODO find a way to use relative paths
-        holding_xml = '/home/chpack/Documents/python/quovo_challenge/christian_packard/fund_holdings/resources/13f_hr_with_namespace.xml'
-        cik = 'viiix'
-        accepted_date = datetime.datetime.now()
+        holding_xml     = '/home/chpack/Documents/python/quovo_challenge/christian_packard/fund_holdings/resources/13f_hr_with_namespace.xml'
+        cik             = 'viiix'
+        accepted_date   = datetime.datetime.now()
         submission_type = '13F-HR'
 
         with open(holding_xml, 'r') as holdings:
@@ -84,10 +83,9 @@ class TestGet13FHoldings(unittest.TestCase):
         self.assertEqual(holding2.value, '548511')
 
     def test_parse_valid_xml_without_namespace(self):
-        # TODO find a way to use relative paths
-        holding_xml = '/home/chpack/Documents/python/quovo_challenge/christian_packard/fund_holdings/resources/13f_hr_no_namespace.xml'
-        cik = 'viiix'
-        accepted_date = datetime.datetime.now()
+        holding_xml     = '/home/chpack/Documents/python/quovo_challenge/christian_packard/fund_holdings/resources/13f_hr_no_namespace.xml'
+        cik             = 'viiix'
+        accepted_date   = datetime.datetime.now()
         submission_type = '13F-HR'
 
         with open(holding_xml, 'r') as holdings:

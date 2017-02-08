@@ -6,8 +6,8 @@ from holdings import web
 from holdings.dto import report13fhr
 from holdings.dto import reportnq
 
-logger = logging.getLogger()
-handler = logging.StreamHandler()
+logger    = logging.getLogger()
+handler   = logging.StreamHandler()
 formatter = logging.Formatter(
     '%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
 
@@ -18,20 +18,18 @@ logger.setLevel(logging.WARN)
 def generate_13fhr_report(cik, forms, archives):
     # The parser looks for the most recent holdings
     holdings_statement = web.get_holding_info(archives[0])
-
     accepted_date, submission_type, holdings_xml = report13fhr.get_13f_xml(holdings_statement[0])
 
     current_13fhr = report13fhr.get_13f_holdings(cik, accepted_date,
                                             submission_type, holdings_xml)
-
-    reportnames = current_13fhr.generate_report()
+    reportnames   = current_13fhr.generate_report()
 
     return reportnames
 
 def generate_nq_report(cik, forms, archives):
     holdings_statement = web.get_holding_info(archives[0])
-    current_nq = reportnq.get_nq_report(holdings_statement[0])
-    reportnames = current_nq.generate_report()
+    current_nq         = reportnq.get_nq_report(holdings_statement[0])
+    reportnames        = current_nq.generate_report()
 
     return reportnames
 
@@ -55,7 +53,7 @@ def main():
         print('Usage: python -m holdings.main ticker_or_cik')
         sys.exit(1)
 
-    cik = sys.argv[1]
+    cik   = sys.argv[1]
     forms = ['13F-HR', '13F-HR/A', 'N-Q']
 
     try:

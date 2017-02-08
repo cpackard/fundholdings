@@ -9,8 +9,8 @@ from holdings.dto import base
 class ClassContract():
 
     def __init__(self, ID, name, ticker):
-        self.ID = ID
-        self.name = name
+        self.ID     = ID
+        self.name   = name
         self.ticker = ticker
 
     def __repr__(self):
@@ -22,15 +22,15 @@ class ClassContract():
 class FundSeries():
 
     def __init__(self, ID, ownerCIK, name, contracts=None, holdings=None):
-        self.ID = ID
+        self.ID       = ID
         self.ownerCIK = ownerCIK
-        self.name = name
+        self.name     = name
         if contracts is None:
             contracts = []
         if holdings is None:
             holdings = []
         self.contracts = contracts
-        self.holdings = holdings
+        self.holdings  = holdings
 
     def __repr__(self):
         return '{id_}::{cik}'.format(
@@ -41,7 +41,7 @@ class FundSeries():
 class ReportNQ(base.SECForm):
 
     def __init__(self, cik, accepted_date, submission_type, series=None):
-        self.cik = cik
+        self.cik           = cik
         self.accepted_date = accepted_date
         if series is None:
             series = []
@@ -67,7 +67,6 @@ class ReportNQ(base.SECForm):
                           + '.txt')
             reportnames.append(reportname)
 
-            # TODO Find a way to make this path relative
             with open('reports/' + reportname, 'w') as csvfile:
                 fields = ['entity', 'shares', 'value']
                 writer = csv.DictWriter(csvfile, fieldnames=fields, delimiter='\t')
@@ -192,12 +191,12 @@ def get_nq_report(complete_text):
     Given the complete submission text for an N-Q filing, parse the document
     and return its respective ReportNQ DTO object.
     """
-    series_flag = False
-    html_flag   = False
-    series_text = []
-    series_list = []
-    html_text   = []
-    accepted_date = ''
+    series_flag     = False
+    html_flag       = False
+    series_text     = []
+    series_list     = []
+    html_text       = []
+    accepted_date   = ''
     submission_type = ''
 
     for line in complete_text.split('\n'):
