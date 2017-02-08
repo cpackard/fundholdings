@@ -62,14 +62,16 @@
 ** DONE Handle exception in main()
    CLOSED: [2017-02-07 Tue 21:05]
 ** TODO Support range of dates for report 
-** TODO Run code coverage report
+** DONE Run code coverage report
+   CLOSED: [2017-02-07 Tue 23:10]
 ** TODO Finish README
 ** DONE Group generated reports together
    CLOSED: [2017-02-07 Tue 20:49]
 ** TODO Stress test with multiple funds (large, small, etf, 13f)
 ** DONE Refactor DTO into multiple files
    CLOSED: [2017-02-07 Tue 21:19]
-** TODO Add requirements.txt and setup.py
+** DONE Add requirements.txt and setup.py
+   CLOSED: [2017-02-07 Tue 23:02]
 ** DONE Refactor parser methods inside report classes
    CLOSED: [2017-02-07 Tue 21:56]
 ** DONE Refactor test_holdings_parser to test_13fhr.py
