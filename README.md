@@ -16,7 +16,7 @@ $ virtualenv -p `which python3` holdings && source holdings/bin/activate
 $ pip install -r requirements.txt
 $ python -m holdings.main ticker_or_cik
 ```
-As an example, we can lookup the holdings for the Vanguard Institutional Index Funds:
+As an example, lookup the holdings for the Vanguard Institutional Index Funds:
 ```bash
 $ python -m holdings.main viiix
 Reports successfully generated and can be found in:
@@ -53,7 +53,7 @@ $ python -m unittest
 **Coverage:** Currently test coverage for the application is 85%. A detailed report can be found in htmlcov/index.html
 
 ## Assumptions and Notes
-While the original scope of the project was broad and ambitious, as we learned more about the data the parser was working with we had to make some pragmatic tradeoffs on application complexity vs supported features. Below is a deatiled progression of the exploration process, but as a brief summary:
+While the original scope of the project was broad and ambitious, as I learned more about the data the parser was working with we had to make some pragmatic tradeoffs on application complexity vs supported features. Below is a deatiled progression of the exploration process, but as a brief summary:
 - **Supported:**
   - Searching for a ticker or CIK through the EDGAR search page
   - Parsing and generating tab-delimited holdings reports for 13F-HR forms
@@ -65,7 +65,7 @@ While the original scope of the project was broad and ambitious, as we learned m
   
 ### Stage 1: Data Exploration
 
-The first challenge was to figure out the types of filings we were dealing with. Having no detailed knowledge of mutual fund filings, we needed to discover:
+The first challenge was to figure out the types of filings we were dealing with. Having no detailed knowledge of mutual fund filings, I needed to discover:
 - What types of forms do we need to parse for holdings information?
 - What format are these forms in?
 - What happens when we can't find any of the forms we're looking for?
@@ -90,7 +90,7 @@ While the format of the reports can vary from company to company, there was a co
   - *accepted_date* The date the report was accepted
   - *submission_type* Whether the form is an N-Q, 13F-HR, etc.
   
-With these core classes defined, we can use them as a common base and extend them to support specific reports while keeping a consistent format.
+With these core classes defined, they can serve as a common base and extend them to support specific reports while keeping a consistent format.
 
 ### Stage 3: Implementation
 
@@ -108,9 +108,9 @@ With those out of the way, the parsing of N-Q filings were next. The first few f
   - Pros: if another text source can be found, much more reliable than reading text from images
   - Cons: if other sources also use images, could lead down a rabbit hole
   
-Since finding another data source was the most pragmatic choice of the three, I set about looking for other sources. Unfortunately, the search was mostly unsuccessful. I tried searching for freely available sources such as Morningstar, Yahoo! Finance, and the funds own websites, but these only listed the Top 10 or Top 25 holdings, and didn't have any historical information on holdings, which makes them very lacking compared to the EDGAR database. While some sources did have APIs for fund holdings, these required hefty licensing fees, and if we're going to be paying then we may as well use a cloud vision API and keep EDGAR as the single, consistent source.
+Since finding another data source was the most pragmatic choice of the three, I set about looking for other sources. Unfortunately, the search was mostly unsuccessful. I tried searching for freely available sources such as Morningstar, Yahoo! Finance, and the funds own websites, but these only listed the Top 10 or Top 25 holdings, and didn't have any historical information on holdings, which makes them very lacking compared to the EDGAR database. While some sources did have APIs for fund holdings, these required hefty licensing fees, and if I'm going to be paying then I may as well use a cloud vision API and keep EDGAR as the single, consistent source.
 
-As we progressed through the parsing of N-Q documents in text form, we quickly ran into several problems. While we initially thought them to be in a somewhat consistent format, the following issues arose as we started to flesh out the implementation and look at more examples:
+As I progressed through the parsing of N-Q documents in text form, I quickly ran into several problems. While I initially thought them to be in a somewhat consistent format, the following issues arose as I started to flesh out the implementation and look at more examples:
 - *Securities can span multiple lines*
   - As an example, one security group could be US Treasury Bonds, but with many different rates. Since the rates are listed in rows like "25,000  2.875%,05/15/43,  26,309", the parser can't just look at the individual rows and know which holding the security corresponds to.
 - *Some insitutions report shares, while others report principal*
