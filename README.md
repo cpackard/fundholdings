@@ -3,11 +3,11 @@ EDGAR Fund Holdings Scraper
 This package implements a web scraper in Python that can parse and format mutual fund holdings pulled from EDGAR, the SEC's open-access repository for company financial reporting. Since the format of company's reports can vary, the goal of this project is to extract this information and present it in a single, consistent format for anyone to use.
 
 ## Table of Contents:
-- [Quickstart][]
-- [Project Structure][]
-- [Tests and Coverage][]
-- [Assumptions and Notes][]
-- [Final Thoughts][]
+- [Quickstart](#quickstart)
+- [Project Structure](#project-structure)
+- [Tests and Coverage](#tests-and-coverage)
+- [Assumptions and Notes](#assumptions-and-notes)
+- [Final Thoughts](#final-thoughts)
 
 ## Quickstart
 Running the scraper requires Python 3, pip, and optionally (but recommended) virtualenv.
