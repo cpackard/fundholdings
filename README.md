@@ -53,7 +53,7 @@ $ python -m unittest
 **Coverage:** Currently test coverage for the application is 85%. A detailed report can be found in htmlcov/index.html
 
 ## Assumptions and Notes
-While the original scope of the project was broad and ambitious, as I learned more about the data the parser was working with we had to make some pragmatic tradeoffs on application complexity vs supported features. Below is a deatiled progression of the exploration process, but as a brief summary:
+While the original scope of the project was broad and ambitious, as I learned more about the data the parser was working with I had to make some pragmatic tradeoffs on application complexity vs supported features. Below is a deatiled progression of the exploration process, but as a brief summary:
 - **Supported:**
   - Searching for a ticker or CIK through the EDGAR search page
   - Parsing and generating tab-delimited holdings reports for 13F-HR forms
@@ -65,10 +65,10 @@ While the original scope of the project was broad and ambitious, as I learned mo
   
 ### Stage 1: Data Exploration
 
-The first challenge was to figure out the types of filings we were dealing with. Having no detailed knowledge of mutual fund filings, I needed to discover:
-- What types of forms do we need to parse for holdings information?
+The first challenge was to figure out the types of filings the application had to interpret. Having no detailed knowledge of mutual fund filings, I needed to discover:
+- What types of forms does the app need to parse for holdings information?
 - What format are these forms in?
-- What happens when we can't find any of the forms we're looking for?
+- What happens when the app can't find any of the forms it's looking for?
 
 After a little research, it seems that holdings information is mostly contained in these filings:
 - 13F-HR and 13F-HR/A (ammendment to an existing 13F-HR)
