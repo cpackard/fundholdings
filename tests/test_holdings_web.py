@@ -12,7 +12,7 @@ class TestArchiveLinks(unittest.TestCase):
     def test_doesnt_return_links_for_bad_forms(self):
         ticker = 'viiix'
         forms = ['Q-N']
-        self.assertEqual([],
+        self.assertEqual(('', []),
                           web.get_archive_links(ticker, *forms))
 
     def test_returns_links_for_13fhr(self):

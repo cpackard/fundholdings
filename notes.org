@@ -24,7 +24,7 @@
 ** TODO Try Google vision API
 *** Pro: highly reliable (99% accuracy on first try), fairly quick to parse
 *** Con: needs an account (possibly paying)
-** Notes on N-Q sources:
+** Clas structure on N-Q sources:
 *** Funds have 1 or more series associated with them 
 **** Can be found in the <SERIES-AND-CLASSES-CONTRACTS-DATA> tag in complete report txt
 *** N-Q class should be composed of multiple series, and series should have the holdings
@@ -38,6 +38,10 @@
 **** entity
 **** shares
 **** value
+*** Base class: SECForm
+**** cik
+**** accepted_date
+**** submission_type
 *** Subclass: 13FHolding
 **** contains all extra fields that Holding has, plus extras from 13F-HR filing 
 **** nameOfIssuer --> entity
@@ -47,9 +51,13 @@
 **** investmentDiscretion
 **** titleOfClass
 **** votingAuthority
+*** Subclass: Report13FHR(SECForm) 
+**** holdings
+
 
 * TODOs
-** TODO Make parser support N-Q text reports
+** DONE Make parser support N-Q text reports
+   CLOSED: [2017-02-07 Tue 00:42]
 ** TODO Support N-Q image reports
 ** TODO Handle exception in main()
 ** TODO Support range of dates for report 
@@ -63,3 +71,7 @@
 ** TODO Refactor Holdings to SharesOrPrincipal
 ** TODO Refactor test_holdings_parser to test_13fhr.py
 ** TODO Add logging to application
+** DONE Detect 13fhr vs nq reports
+   CLOSED: [2017-02-07 Tue 20:25]
+** TODO Format and align/prettify variables
+** TODO Print info to user telling them if parsing was successful

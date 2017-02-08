@@ -48,6 +48,7 @@ def get_13f_xml(holdings_statement):
     """
     holdings_xml = []
     accepted_date = ''
+    submission_type = ''
     info_started = False
 
     for line in holdings_statement.split('\n'):
@@ -60,6 +61,8 @@ def get_13f_xml(holdings_statement):
         elif 'informationTable' in line:
             info_started = True
             holdings_xml.append(line)
+        elif 'CONFORMED SUBMISSION TYPE' in line:
+            submission_type = line[line.find(':')+1:].strip()
         elif 'ACCEPTANCE-DATETIME' in line:
             full_date      = line[line.rfind('>')+1:len(line)]
             year           = full_date[:4]
@@ -74,9 +77,9 @@ def get_13f_xml(holdings_statement):
                 print('get_13f_xml expected a well-formatted date')
                 raise
 
-    return accepted_date, ''.join(holdings_xml)
+    return accepted_date, submission_type, ''.join(holdings_xml)
 
-def get_13f_holdings(cik, accepted_date, holdings_xml):
+def get_13f_holdings(cik, accepted_date, submission_type, holdings_xml):
     """
     Given a well-formed xml containing the holding data from a 13F-HR filing,
     parse the xml and return a 13FHR object containing a list of holdings DTO objects.
@@ -96,7 +99,7 @@ def get_13f_holdings(cik, accepted_date, holdings_xml):
                 for h
                 in infotables]
 
-    return holdingsDTO.Report13FHR(cik, accepted_date, holdings)
+    return holdingsDTO.Report13FHR(cik, accepted_date, submission_type, holdings)
 
 
 ####################### nq report #####################################
@@ -218,7 +221,8 @@ def get_nq_report(complete_text):
     series_text = []
     series_list = []
     html_text   = []
-
+    accepted_date = ''
+    submission_type = ''
 
     for line in complete_text.split('\n'):
         if 'ACCEPTANCE-DATETIME' in line:
@@ -234,6 +238,8 @@ def get_nq_report(complete_text):
                 # TODO put actual logging here
                 print('get_13f_xml expected a well-formatted date')
                 raise
+        elif 'CONFORMED SUBMISSION TYPE' in line:
+            submission_type = line[line.find(':')+1:].strip()
         ## Parse all series text and add to the series list
         elif '<SERIES>' in line:
             series_text.append(line)
@@ -264,6 +270,7 @@ def get_nq_report(complete_text):
 
     report = holdingsDTO.ReportNQ(all_series[0].ownerCIK,
                                   accepted_date,
+                                  submission_type,
                                   all_series)
 
     return report

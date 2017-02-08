@@ -8,7 +8,7 @@ class TestGet13FXML(unittest.TestCase):
 
     def test_returns_empty_string_for_other_xml(self):
         text = '<DOCUMENT>\n<TYPE>13F-HR\n<SEQUENCE>1\n<FILENAME>primary_doc.xml\n<TEXT>\n<XML>\n<?xml version="1.0" encoding="UTF-8"?>\n<edgarSubmission xsi:schemaLocation="http://www.sec.gov/edgar/thirteenffiler eis_13F_Filer.xsd" xmlns="http://www.sec.gov/edgar/thirteenffiler" xmlns:ns1="http://www.sec.gov/edgar/common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\n  <headerData>\n    <submissionType>13F-HR</submissionType>\n    <filerInfo>\n      <liveTestFlag>LIVE</liveTestFlag>\n      <filer>\n        <credentials>\n          <cik>0001166559</cik>\n          <ccc>XXXXXXXX</ccc>\n        </credentials>\n      </filer>\n      <periodOfReport>09-30-2016</periodOfReport>\n    </filerInfo>\n  </headerData>\n  <formData>\n    <coverPage>\n      <reportCalendarOrQuarter>09-30-2016</reportCalendarOrQuarter>\n      <isAmendment>false</isAmendment>\n      <filingManager>\n        <name>Bill &amp; Melinda Gates Foundation Trust</name>\n        <address>\n          <ns1:street1>2365 Carillon Point</ns1:street1>\n          <ns1:city>Kirkland</ns1:city>\n          <ns1:stateOrCountry>WA</ns1:stateOrCountry>\n          <ns1:zipCode>98033</ns1:zipCode>\n        </address>\n      </filingManager>\n      <reportType>13F HOLDINGS REPORT</reportType>\n      <form13FFileNumber>028-10098</form13FFileNumber>\n      <provideInfoForInstruction5>N</provideInfoForInstruction5>\n    </coverPage>\n    <signatureBlock>\n      <name>Michael Larson</name>\n      <title>Authorized Agent</title>\n      <phone>425-889-7900</phone>\n      <signature>/s/ Michael Larson</signature>\n      <city>Kirkland</city>\n      <stateOrCountry>WA</stateOrCountry>\n      <signatureDate>11-14-2016</signatureDate>\n    </signatureBlock>\n    <summaryPage>\n      <otherIncludedManagersCount>0</otherIncludedManagersCount>\n      <tableEntryTotal>18</tableEntryTotal>\n      <tableValueTotal>18452426</tableValueTotal>\n      <isConfidentialOmitted>false</isConfidentialOmitted>\n    </summaryPage>\n  </formData>\n</edgarSubmission>\n</XML>\n</TEXT>\n</DOCUMENT>'
-        accepted_date, result = parser.get_13f_xml(text)
+        accepted_date, submission_type, result = parser.get_13f_xml(text)
         self.assertEqual('', result)
 
     def test_parses_valid_infotable_xml(self):
@@ -18,7 +18,7 @@ class TestGet13FXML(unittest.TestCase):
             holdings_statement = text_submission.read()
 
         try:
-            accepted_date, holdings_xml = parser.get_13f_xml(holdings_statement)
+            accepted_date, submission_type, holdings_xml = parser.get_13f_xml(holdings_statement)
             self.assertTrue('informationTable' in holdings_xml)
             self.assertTrue('infoTable' in holdings_xml)
 
@@ -57,18 +57,20 @@ class TestGet13FHoldings(unittest.TestCase):
         malformed_xml = '<SEC-DOCUMENT>0001104659-16-156931.txt : 20161114'
         cik = 'viiix'
         accepted_date = datetime.datetime.now()
+        submission_type = '13F-HR'
 
         self.assertRaises(xml.etree.ElementTree.ParseError,
-                          parser.get_13f_holdings, cik, accepted_date, malformed_xml)
+                          parser.get_13f_holdings, cik, accepted_date, submission_type, malformed_xml)
 
     def test_parse_valid_xml_with_namespace(self):
         # TODO find a way to use relative paths
         holding_xml = '/home/chpack/Documents/python/quovo_challenge/christian_packard/fund_holdings/resources/13f_hr_with_namespace.xml'
         cik = 'viiix'
         accepted_date = datetime.datetime.now()
+        submission_type = '13F-HR'
 
         with open(holding_xml, 'r') as holdings:
-            result = parser.get_13f_holdings(cik, accepted_date, holdings.read())
+            result = parser.get_13f_holdings(cik, accepted_date, submission_type, holdings.read())
 
         holding1 = result.holdings[0]
         holding2 = result.holdings[1]
@@ -86,9 +88,10 @@ class TestGet13FHoldings(unittest.TestCase):
         holding_xml = '/home/chpack/Documents/python/quovo_challenge/christian_packard/fund_holdings/resources/13f_hr_no_namespace.xml'
         cik = 'viiix'
         accepted_date = datetime.datetime.now()
+        submission_type = '13F-HR'
 
         with open(holding_xml, 'r') as holdings:
-            result = parser.get_13f_holdings(cik, accepted_date, holdings.read())
+            result = parser.get_13f_holdings(cik, accepted_date, submission_type, holdings.read())
 
         holding1 = result.holdings[0]
         holding2 = result.holdings[1]

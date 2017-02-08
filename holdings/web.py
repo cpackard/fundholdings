@@ -19,6 +19,8 @@ def get_archive_links(ticker, *forms):
     r = requests.get(url) # TODO Catch exception here?
     c = r.content
     soup = BeautifulSoup(c, 'html.parser')
+
+    submission_type = ''
     results = []
 
     if 'No matching Ticker Symbol' in soup.get_text():
@@ -28,15 +30,16 @@ def get_archive_links(ticker, *forms):
         tds = tr.find_all('td')
         # contents = [i for i in row if str(i) != '\n']
         for td in tds:
-           if td.get_text() in forms:
-               archive = [href.get('href')
-                           for href
-                           in tr.find_all('a')
-                           if href.get('href').startswith('/Archive')]
-               if archive:
-                   results.append(domain + archive[0])
+            if td.get_text() in forms:
+                submission_type = td.get_text()
+                archive = [href.get('href')
+                            for href
+                            in tr.find_all('a')
+                            if href.get('href').startswith('/Archive')]
+                if archive:
+                    results.append(domain + archive[0])
 
-    return results
+    return submission_type, results
 
 def get_holding_info(*archives):
     """

@@ -23,9 +23,10 @@ class Holding():
 
 class SECForm():
 
-    def __init__(self, cik, accepted_date):
+    def __init__(self, cik, accepted_date, submission_type):
         self.cik = cik
         self.accepted_date = accepted_date
+        self.submission_type = submission_type
 
     def generate_report(self):
         raise NotImplementedError('Please implement this method.')
@@ -35,12 +36,12 @@ class SECForm():
 
 class Report13FHR(SECForm):
 
-    def __init__(self, cik, accepted_date, holdings=None):
+    def __init__(self, cik, accepted_date, submission_type, holdings=None):
         if holdings is None:
             holdings = []
 
         self.holdings = holdings
-        super().__init__(cik, accepted_date)
+        super().__init__(cik, accepted_date, submission_type)
 
     def __repr__(self):
         return '{cik}::{date}'.format(
@@ -105,12 +106,13 @@ class FundSeries():
 
 class ReportNQ(SECForm):
 
-    def __init__(self, cik, accepted_date, series=None):
+    def __init__(self, cik, accepted_date, submission_type, series=None):
         self.cik = cik
         self.accepted_date = accepted_date
         if series is None:
             series = []
         self.series = series
+        super().__init__(cik, accepted_date, submission_type)
 
     def __repr__(self):
         return '{cik}::{date}'.format(
