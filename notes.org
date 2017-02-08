@@ -59,7 +59,8 @@
 ** DONE Make parser support N-Q text reports
    CLOSED: [2017-02-07 Tue 00:42]
 ** TODO Support N-Q image reports
-** TODO Handle exception in main()
+** DONE Handle exception in main()
+   CLOSED: [2017-02-07 Tue 21:05]
 ** TODO Support range of dates for report 
 ** TODO Run code coverage report
 ** TODO Finish README

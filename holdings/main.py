@@ -44,12 +44,26 @@ def main():
     cik = sys.argv[1]
     forms = ['13F-HR', '13F-HR/A', 'N-Q']
 
-    reportnames = generate_report(cik, forms)
+    try:
+        reportnames = generate_report(cik, forms)
+    except web.TickerNotFoundException:
+        print('No suck ticker ' + cik + ' found in EDGAR')
+    except web.HoldingInfoNotFoundException as e:
+        print('No submission text found in the following archives:')
+        print(str(e))
+    except parser.InvalidContractTextException as e:
+        print('While parsing the contract classes for the fund, '
+              + 'the following error occured:')
+        print(str(e))
+    except parser.InvalidSeriesTextException as e:
+        print('While parsing the series information for the fund, '
+              + 'the following error occured:')
+        print(str(e))
+    else:
+        print('Reports successfully generated and can be found in:')
 
-    print('Reports successfully generated and can be found in:')
-
-    for name in reportnames:
-        print('reports/' + name)
+        for name in reportnames:
+            print('reports/' + name)
 
 
 if __name__ == '__main__':
