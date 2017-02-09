@@ -47,7 +47,7 @@ $ python -m unittest
 ```
 To test a specific module:
 ```bash
-$ python -m unittest
+$ python -m unittest tests.test_functional
 ```
 
 **Coverage:** Currently test coverage for the application is 85%. A detailed report can be found in htmlcov/index.html
