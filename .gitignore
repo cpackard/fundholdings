@@ -3,3 +3,4 @@ __pycache__
 .coverage
 holdings.egg-info/*
 .eggs/*
+htmlcov/*

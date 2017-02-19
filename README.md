@@ -123,4 +123,4 @@ As I progressed through the parsing of N-Q documents in text form, I quickly ran
 Since the application complexity would increase exponentially if these issues were addressed, I decided to not support them at this time. Instead, I focused on an intial data model for N-Q reports that would be consistent across them all, and could address these issues in future iterations if time allows.
 
 ## Final Thoughts
-This project was a great exploration both in financial domain knowledge as well as the techical side of web scraping. It does an excellent job of demonstrating that complexity in a web scraper can quickly climb, and that the developer needs to build their applications with robustness from the start to handle these challenges as the arise.
+This project was a great exploration both in financial domain knowledge as well as the techical side of web scraping. It does an excellent job of demonstrating that complexity in a web scraper can quickly climb, and that the developer needs to build their applications with robustness from the start to handle these challenges as they arise.
